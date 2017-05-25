@@ -4,3 +4,6 @@
 
 # compile
 target/
+
+# private
+/src/main/resources/*.properties
