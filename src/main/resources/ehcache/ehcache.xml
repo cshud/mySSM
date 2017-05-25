@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+
+    <!-- 磁盘缓存位置 -->
+    <diskStore path="java.io.tmpdir/ehcache"/>
+
+    <!-- 默认缓存 -->
+    <defaultCache
+            maxEntriesLocalHeap="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            maxEntriesLocalDisk="10000000"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU"/>
+
+    <!--
+       eternal : 缓存是否永久有效
+       timeToIdleSecond ： 缓存数据在失效前的允许闲置时间 单位:秒
+       timeToLiveSeconds：缓存数据在失效前的允许存活时间 单位:秒
+       maxEntriesLocalDisk ： 磁盘缓存中最多可以存放的元素数量,0表示无穷大
+       diskExpiryThreadIntervalSeconds ： 磁盘缓存的清理线程运行间隔,
+       memoryStoreEvictionPolicy ：内存存储与释放策略,即达到maxElementsInMemory限制时,Ehcache会根据指定策略清理内存
+                     共有三种策略,分别为LRU(最近最少使用)、LFU(最常用的)、FIFO(先进先出)
+       overflowToDisk : 内存不足时,是否启用磁盘缓存
+
+    -->
+
+
+    <!-- myCache缓存 -->
+    <cache name="users"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="0"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LFU"/>
+
+</ehcache>
