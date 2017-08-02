@@ -20,6 +20,8 @@
 
 - Mysql
 
+- Jedis：操作Redis
+
   ​
 
 **未来工作**
